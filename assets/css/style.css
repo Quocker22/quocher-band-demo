@@ -145,12 +145,11 @@ position: relative;
 }
 
 #slider {
-    margin-top:46px ;
     position: relative;
-    background-color:rgb(135, 40, 179);
-    padding-top:50%;
-    background: url("/W3_band/assets/img/la.jpg") top center / cover no-repeat;
+}
 
+#slider .img-slider img{
+    width: 100%;    
 }
 
 #slider .text-title {
