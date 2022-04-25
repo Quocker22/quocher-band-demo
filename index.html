@@ -7,8 +7,9 @@
     <title>The Band</title>
     <link rel="icon" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fdmbailey9%2Flogo-and-favicon-inspiration%2F&psig=AOvVaw0ZfBb52gWwXR-LWm7aAvkb&ust=1648311873067000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPDnkLPW4fYCFQAAAAAdAAAAABAJ" type="image/x-icon" />
     <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./assets/font-icon/themify-icons/themify-icons.css">
- 
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/font-icon/themify-icons/themify-icons.css">
+
 </head>
 <body>
    <div id="main">
@@ -20,7 +21,7 @@
             <li><a href="#tour">Tour</a></li>
             <li><a href="#contact">Contact</a></li>
             <li>
-                <a href="">
+                <a href="#">
                     More
                     <i class="nav-down ti-angle-down"></i>
                 </a>
@@ -33,6 +34,10 @@
             <div class="nav-search">
                 <i class="nav-icon ti-search"></i>
             </div>
+            <div id="mobile-menu" class="menu-mobile">
+                <i class="menu-icon ti-menu"></i>
+            </div>
+
             </li>
            
         </ul>
@@ -85,7 +90,7 @@
             
             <!-- places -->
             <div class="row place-list">
-                <div class="col col-third">
+                <div class="place-mobile-list col col-third">
                     <img src="./assets/img/band/newyork.jpg" alt="" class="place-img">
                 <div class="place-body">
                     <h3 class="places-heading">New York</h3>
@@ -94,7 +99,7 @@
                     <button class="place-buy js-buy-ticket">Buy tickets</button>
                 </div>
                 </div>
-                <div class="col col-third">
+                <div class="place-mobile-list col col-third">
                     <img src="./assets/img/band/paris.jpg" alt="" class="place-img">
                 <div class="place-body">
                     <h3 class="places-heading">Paris</h3>
@@ -104,7 +109,7 @@
                 </div>
                 
                     </div>
-                <div class="col col-third">
+                <div class="place-mobile-list col col-third">
                     <img src="./assets/img/band/sanfran.jpg" alt="" class="place-img">
                 <div class="place-body">
                     <h3 class="places-heading">San Francisco</h3>
@@ -123,18 +128,18 @@
                 <p class="section-sub-heading">Fan? Drop a note!</p>
                 
                 <div class="cow contact-content">
-                    <div class="col col-half contact-input">
+                    <div class="contact-mobile col col-half contact-input">
                         <p><i class="ti-location-pin"></i>Chicago, US</p>
                         <p><i class="ti-mobile"></i>Phone: +00 151515</p>
                         <p><i class="ti-email"></i>Email: mail@mail.com</p>
                     </div>
-                    <div class="col col-half contact-scan">
+                    <div class="contact-mobile col col-half contact-scan">
                       <form action="">
                         <div class="row">
-                            <div class="col col-half">
+                            <div class="margin-top-16 info-scan col col-half">
                                 <input type="text" name=""placeholder='Name' required id="" class="form-control">
                             </div>
-                            <div class="col col-half">
+                            <div class="margin-top-16 info-scan col col-half">
                                 <input type="email" name=""placeholder='Email' required id="" class="form-control">
                             </div>
                         </div>
@@ -230,10 +235,36 @@
 
         modal.addEventListener('click',hideticket)
 
-        modalContainer.addEventListener('click', function(event){
+        modalContainer.addEventListener('click', function(event) {
             event.stopPropagation()
         })
 
+    </script>
+    <!-- đóng mở menu mobile -->
+    <script>
+        var header = document.getElementById('header');
+        var mobileMenu = document.getElementById('mobile-menu');
+        var headerHeight = header.clientHeight;
+            mobileMenu.onclick = function(){
+                var isclosed = header.clientHeight === headerHeight;
+                if(isclosed){
+                    header.style.height = 'auto';
+                }else{
+                    header.style.height = null;
+                }
+            }
+
+            // tự động đóng menu
+            var menuItems = document.querySelectorAll('#nav li a[href*="#"]')
+            for (var i = 0 ; i < menuItems.length ; i++){
+                 var menuItem = menuItems[i];
+                 menuItem.onclick = function(){
+                     var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav');
+                   if(!isParentMenu){
+                     header.style.height = null;
+                   }
+                    } 
+            }
     </script>
 </body>
 </html>

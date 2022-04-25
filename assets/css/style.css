@@ -14,7 +14,7 @@ html{
 1. vịt rí 
 2. kích thước
 3. màu sắc
-4. kiểu dáng
+4. kiểu dánasdsag
 
 ==========
 
@@ -80,9 +80,10 @@ html{
     line-height: 46px;
     padding: 0px 28px;
     display:inline-block;
+    width: 100%;
 }
 #nav li:hover .subnav{
-    display: block;
+    display:block;
 }
 #nav > li:hover > a{
     color:#000;
@@ -100,7 +101,8 @@ html{
 }
 
 #nav .subnav li:hover a{
-    color:#000;
+    display: block;
+    color:rgb(3, 2, 2);
     background-color: #ccc;
     width: 100%;
 }
@@ -111,36 +113,47 @@ html{
     line-height: 38px;
 }
 #nav > li{
-display: inline-block;
+display:inline-block;
 position: relative; 
 }
 
 #nav .nav-down {
     font-size: 13px;
 }
-#header .nav-search{
-        position:absolute ;
-        display: inline-block;
-}
+
 
 #header .nav-search{
+        position:absolute ;
+        color: rgb(7, 1, 1);
+        display: inline-block;
+        width: 46px;
+        height: 46px;
+        right: 0;
+        cursor: pointer;
+        text-align: center;
+}
+
+#header .menu-mobile{
+    display: none;
+    color: rgb(255, 255, 255);
     width: 46px;
     height: 46px;
     right: 0;
-    cursor: pointer;
+    text-align: center;
 }
 
+#header .menu-mobile i,
 #header .nav-icon{
     font-size: 20px;
     color: rgb(255, 255, 255);
-    line-height: 46px;
-    padding-left: 15px;
+    line-height: 46px; 
 }
 
+#header .menu-mobile:hover,
 #header .nav-search:hover{
     width: 46px;
     height: 46px;
-    background-color: rgb(255, 37, 37);
+    background-color:#333;
    
 }
 
@@ -153,10 +166,10 @@ position: relative;
 }
 
 #slider .text-title {
-    font-size: 30px;
+    font-size: 25px;
     color: #fff;
     position: absolute;
-    top: 80%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%);
     font-weight: 100;
@@ -166,18 +179,23 @@ position: relative;
     font-size: 15px;
     color: #fff;
     position: absolute;
-    top: 90%;
+    top: 81%;
     left: 50%;
     transform: translate(-50%);
+    width: 100%;
+    text-align: center;
+    text-shadow: 0 0 1px black;
  }
 
 
 #content .content-section{
     width: 800px;
+    max-width: 100%;
    margin-left: auto;
    margin-right: auto;
    padding:64px 16px 64px 16px;
-  
+   padding-left: 16px;
+  padding-right: 16px;
 }
 
 #content .content-section .section-heading{
@@ -433,6 +451,7 @@ opacity: 0.9;
 /* contact */
 .contact-content{
     padding-top: 47px;
+    overflow: hidden;
 }
 
 .contact-input {
